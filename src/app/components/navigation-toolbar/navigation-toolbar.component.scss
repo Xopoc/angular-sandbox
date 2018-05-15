@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.space-filler {
+  flex: 1 1 auto;
+}
+
+.item,
+.title {
+  color: #fff;
+  text-decoration: none;
+}
+
+.item {
+  margin-left: 1.1em;
+}

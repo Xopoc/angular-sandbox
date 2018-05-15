@@ -7,19 +7,3 @@
 a {
   color: $color-badass;
 }
-
-.resource {
-  display: inline-block;
-  background: $color-badass url(/assets/resources/loader.svg) 50% 50% no-repeat;
-  img {
-    opacity: 0;
-    height: 100%;
-    min-height: 50px;
-    min-width: 50px;
-    vertical-align: top;
-    transition: opacity .25s ease-in-out;
-    &.loaded {
-      opacity: 1;
-    }
-  }
-}
