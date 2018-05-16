@@ -10,7 +10,7 @@ import { SimpleIdComponent } from './pages/simple-id/simple-id.component';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NavigationToolbarModule,
   ],
