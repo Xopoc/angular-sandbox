@@ -10,7 +10,10 @@ import { ListItemComponent } from './list-item/list-item.component';
     CommonModule,
     LazyListRoutingModule
   ],
-  declarations: [LazyListComponent, ListItemComponent]
+  declarations: [
+    LazyListComponent,
+    ListItemComponent
+  ]
 })
 export class LazyListModule {
 }

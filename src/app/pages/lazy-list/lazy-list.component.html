@@ -2,14 +2,12 @@
   lazy-list works!
 </p>
 
-<ul>
-  <li>
-    <a [routerLink]="[1]">item 1</a>
-  </li>
-  <li>
-    <a [routerLink]="[2]">item 2</a>
-  </li>
-  <li>
-    <a [routerLink]="['four']">item four</a>
+<ng-container *ngIf="!list.length">
+  loading...
+</ng-container>
+
+<ul *ngIf="list.length">
+  <li *ngFor="let listItem of list">
+    <a [routerLink]="[listItem.id]">{{listItem.name}}</a>
   </li>
 </ul>
