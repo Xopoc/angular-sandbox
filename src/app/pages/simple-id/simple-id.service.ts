@@ -11,22 +11,38 @@ export class SimpleIdService {
       id: '1',
       name: 'list one',
       content: 'list one content',
+      seo: {
+        title: 'List one title',
+        description: 'List one description',
+      },
     },
 
     {
       id: 'two',
       name: 'list 2',
       content: 'list 2 content',
+      seo: {
+        title: 'List 2 title',
+        description: 'List 2 description',
+      },
     },
     {
       id: '3',
       name: 'list 3',
       content: 'list 3 content',
+      seo: {
+        title: 'List 3 title',
+        description: 'List 3 description',
+      },
     },
     {
       id: 'wow',
       name: 'wow item',
       content: 'wow item content content',
+      seo: {
+        title: 'List wow title',
+        description: 'List wow description',
+      },
     },
   ];
 

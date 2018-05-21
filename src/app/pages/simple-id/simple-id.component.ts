@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {SimpleIdService} from './simple-id.service';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-simple-id',
@@ -16,13 +17,20 @@ export class SimpleIdComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute,
               private changeDetector: ChangeDetectorRef,
-              private simpleIdService: SimpleIdService) {
+              private simpleIdService: SimpleIdService,
+              private title: Title,
+              private meta: Meta) {
   }
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.itemSubscription = this.simpleIdService.getItemById(this.id).subscribe((data) => {
       this.item = data;
+      this.title.setTitle(this.item.seo.title);
+      this.meta.addTag({
+        name: 'description',
+        content: this.item.seo.description,
+      });
       this.changeDetector.detectChanges();
     });
   }
