@@ -18,19 +18,19 @@ const routes: Routes = [
     path: 'simple-id/:id',
     component: SimpleIdComponent
   },
-  // {
-  //   path: 'lazy-loaded',
-  //   pathMatch: 'full',
-  //   loadChildren: 'src/app/pages/lazy/lazy.module#LazyModule',
-  // },
-  // {
-  //   path: 'lazy-loaded-list',
-  //   loadChildren: 'src/app/pages/lazy-list/lazy-list.module#LazyListModule',
-  // },
-  // {
-  //   path: '**',
-  //   redirectTo: '/'
-  // }
+  {
+    path: 'lazy-loaded',
+    pathMatch: 'full',
+    loadChildren: './pages/lazy/lazy.module#LazyModule',
+  },
+  {
+    path: 'lazy-loaded-list',
+    loadChildren: './pages/lazy-list/lazy-list.module#LazyListModule',
+  },
+  {
+    path: '**',
+    redirectTo: '/'
+  }
 ];
 
 @NgModule({

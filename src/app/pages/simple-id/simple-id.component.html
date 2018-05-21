@@ -1,4 +1,12 @@
 <p>
   simple-id works!
-  ID: {{id}}
 </p>
+
+<ng-container *ngIf="!item">
+  loading...
+</ng-container>
+
+<ng-container *ngIf="item">
+  <h1>{{item.name}} <small>ID:{{item.id}}</small></h1>
+  <p>{{item.content}}</p>
+</ng-container>
