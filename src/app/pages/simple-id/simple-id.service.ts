@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {Observable, of} from 'rxjs';
+import {makeStateKey, TransferState} from '@angular/platform-browser';
+import {isPlatformServer} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +49,9 @@ export class SimpleIdService {
   ];
 
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId,
+              private transferState: TransferState
+              ) {
   }
 
   getItems(): Observable<any[]> {
@@ -59,12 +63,22 @@ export class SimpleIdService {
   }
 
   getItemById(id: string): Observable<any> {
+    const itemKey = makeStateKey('simple-id-item-' + id);
+    if (this.transferState.hasKey(itemKey)) {
+      const itemData = this.transferState.get(itemKey, null);
+      this.transferState.remove(itemKey);
+      return of(itemData);
+    }
+
     const listItem = this.items.find(item => {
       return item.id === id;
     });
     if (listItem) {
       return new Observable<any>(observer => {
         setTimeout(() => {
+          if (isPlatformServer(this.platformId)) {
+            this.transferState.set(itemKey, {...listItem});
+          }
           observer.next({...listItem});
         }, 2000);
       });
