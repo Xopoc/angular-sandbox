@@ -1,12 +1,17 @@
-<p>
-  simple-id works!
-</p>
+<ng-container *appSsrNoRender>
+  <p>
+    simple-id works!
+  </p>
 
-<ng-container *ngIf="!item">
-  loading...
+  <ng-container *ngIf="!item">
+    loading...
+  </ng-container>
+
+  <ng-container *ngIf="item">
+    <h1>{{item.name}}
+      <small>ID:{{item.id}}</small>
+    </h1>
+    <p>{{item.content}}</p>
+  </ng-container>
 </ng-container>
 
-<ng-container *ngIf="item">
-  <h1>{{item.name}} <small>ID:{{item.id}}</small></h1>
-  <p>{{item.content}}</p>
-</ng-container>

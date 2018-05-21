@@ -7,6 +7,8 @@ import {NavigationToolbarModule} from './components/navigation-toolbar/navigatio
 import { HomeComponent } from './pages/home/home.component';
 import { SimpleComponent } from './pages/simple/simple.component';
 import { SimpleIdComponent } from './pages/simple-id/simple-id.component';
+import {AppSsrRenderDirective} from './directives/app-ssr-render.directive';
+import {AppSsrNoRenderDirective} from './directives/app-ssr-no-render.directive';
 
 @NgModule({
   imports: [
@@ -19,6 +21,8 @@ import { SimpleIdComponent } from './pages/simple-id/simple-id.component';
     HomeComponent,
     SimpleComponent,
     SimpleIdComponent,
+    AppSsrRenderDirective,
+    AppSsrNoRenderDirective,
   ],
   providers: [],
   bootstrap: [AppComponent]
